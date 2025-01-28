@@ -169,6 +169,43 @@
                 </plugins>
             </build>
         </profile>
+        <!-- assembly 2 -->
+        <profile>
+            <id>assembly2</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-assembly-plugin</artifactId>
+                        <version>3.4.2</version>
+                        <configuration>
+                            <descriptorRefs>
+                                <descriptorRef>jar-with-dependencies</descriptorRef>
+                            </descriptorRefs>
+                            <!-- MainClass in mainfest make a executable jar -->
+                            <archive>
+                                <manifest>
+                                    <addClasspath>true</addClasspath>
+                                    <mainClass>${exec.mainClass}</mainClass>
+                                </manifest>
+                            </archive>
+
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <id>make-assembly</id>
+                                <phase>package</phase> <!-- bind to the packaging phase -->
+                                <goals>
+                                    <goal>single</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+
+               
+                </plugins>
+            </build>
+        </profile>
         <!-- maven-shade-plugin -->
         <profile>
             <id>shade</id>
@@ -261,12 +298,34 @@
             </build>
         </profile>
         
-    </profiles>
+        
+       
+            <profile>
+                <id>jersey</id>
+                <activation>
+                    <activeByDefault>true</activeByDefault>
+                </activation>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.glassfish.jersey.core</groupId>
+                        <artifactId>jersey-server</artifactId>
+                    </dependency>
+                    <dependency>
+                        <groupId>org.glassfish.jersey.containers</groupId>
+                        <artifactId>jersey-container-jdk-http</artifactId>
+                    </dependency>
+                    <dependency>
+                        <groupId>org.glassfish.jersey.inject</groupId>
+                        <artifactId>jersey-cdi2-se</artifactId>
+                    </dependency>
+                </dependencies>
+            </profile>
+        </profiles>
     
-    <repositories>
-        <repository>
-            <id>jitpack.io</id>
-            <url>https://jitpack.io</url>
-        </repository>
-    </repositories>
+        <repositories>
+            <repository>
+                <id>jitpack.io</id>
+                <url>https://jitpack.io</url>
+            </repository>
+        </repositories>
 </project>
