@@ -1,0 +1,5 @@
+cd /home/avbravo/NetBeansProjects/j/jettraframework/jettraempaquetador; 
+JAVA_HOME=/usr/local/graalvm-community-openjdk-21.0.2+13.1 
+/snap/netbeans/125/netbeans/java/maven/bin/mvn -Dexec.vmArgs= 
+"-Dexec.args=${exec.vmArgs} -classpath %classpath ${exec.mainClass} ${exec.appArgs}" -Dexec.appArgs= -Dexec.mainClass=com.avbravo.jettraempaquetador.start.Start -Dexec.executable=/usr/local/graalvm-community-openjdk-21.0.2+13.1/bin/java --no-transfer-progress process-classes org.codehaus.mojo:exec-maven-plugin:3.1.0:exec
+Scanning for projects...
