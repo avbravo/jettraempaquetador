@@ -12,7 +12,7 @@
         <configuration>
           <archive>
             <manifest>
-              <mainClass>com.avbravo.jettraempaquetador.start.Start</mainClass>
+              <mainClass>${exec.mainClass}</mainClass>
             </manifest>
           </archive>
         </configuration>
@@ -39,7 +39,7 @@
                   <shadedArtifactAttached>false</shadedArtifactAttached>
                   <transformers>
                     <transformer>
-                      <mainClass>com.avbravo.jettraserverhelloworld.start.Start</mainClass>
+                      <mainClass>${exec.mainClass}</mainClass>
                     </transformer>
                     <transformer>
                       <resource>META-INF/services/jakarta.ws.rs.ext.RuntimeDelegate</resource>
