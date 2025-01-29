@@ -55,13 +55,13 @@ public class Start {
               /**
          * Con RootPath
          */
-  //String host="localhost";
-  String host="192.168.60.243";
+  String host="localhost";
+ // String host="192.168.60.243";
    //      String host="192.168.50.116";
         JettraServer local = new JettraServer.Builder()
                 .protocol(Protocol.HTTP)
                 .host(host)
-                .port(8080)
+                .port(8081)
                 .runInternalTest(Boolean.FALSE)
                 .sslClientAuthentication(SSLClientAuthentication.NONE)
                 .rootPath("api")
